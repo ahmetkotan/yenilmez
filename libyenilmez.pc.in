@@ -1,0 +1,9 @@
+libdir=@LIBDIR@
+includedir=@INCLUDEDIR@
+
+Name: yenilmez
+Description: Yenilmez C Test Framework
+Version: @LIBYENILMEZ_VERSION@
+Requires.private: glib-2.0 >= 2.42.1
+Cflags: -I${includedir} -I${includedir}/yenilmez
+Libs: -L${libdir} -lyenilmez
