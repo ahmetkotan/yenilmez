@@ -24,3 +24,6 @@ make
 ```bash
 gcc yenexample.c $(pkg-config --cflags libyenilmez) $(pkg-config --libs libyenilmez) -o yenexample
 ```
+
+## Screenshots
+![yen-screen](screenshot.png)
