@@ -14,8 +14,8 @@ Also see [doc/CONTRIBUTING.md](doc/CONTRIBUTING.md)
 Also see [doc/REFERENCES.md](doc/REFERENCES.md)
 
 ## TODO
-* Doxygen Documentation
-* Development Environment
-* Async Tests
-* Signal Assertion
-* Timeout Assertion
+-[ ] Doxygen Documentation
+-[X] Development Environment
+-[ ] Async Tests
+-[ ] Signal Assertion
+-[ ] Timeout Assertion

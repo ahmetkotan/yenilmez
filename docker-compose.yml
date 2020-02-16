@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  yenilmez-dev:
+    build:
+      context: ./
+      dockerfile: .docker/development/Dockerfile
+    container_name: yenilmez-dev
+    image: yenilmez_dev:latest
+    command: "tail -f /dev/null"
+    ports:
+      - "7786:22"
+    volumes:
+      - ./:/code
