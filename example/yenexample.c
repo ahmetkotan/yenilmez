@@ -20,5 +20,7 @@ test_strings () {
 
 int main (int argc, char *argv[]) {
     yenilmez_initialize(argc, argv);
-    run_all_tests();
+    test_counts counts = run_all_tests();
+
+    return counts.failed;
 }
