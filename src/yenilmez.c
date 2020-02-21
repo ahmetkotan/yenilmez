@@ -5,12 +5,15 @@
 #include <stdlib.h>
 #include <glib.h>
 #include <dlfcn.h>
+#include <unistd.h>
+#include <wait.h>
 
 #include "yenilmez.h"
 #include "collector.h"
 #include "colors.h"
 #include "sighands.h"
 #include "counters.h"
+#include "jobs.h"
 
 test_f *flist_head = NULL;
 void *handle;
@@ -23,15 +26,29 @@ call_function (test_f *function) {
 test_counts
 run_all_tests () {
     test_f *tmp = flist_head;
+    int job = 0, parallel_jobs = get_job_count();
 
     while (tmp) {
-        call_function(tmp);
+        pid_t sub_pid = fork();
+        if (sub_pid == 0) {
+            call_function(tmp);
+            exit(0);
+        }
+        else {
+            job++;
+            if (job >= parallel_jobs) {
+                wait(NULL); wait(NULL);
+            }
+        }
         tmp = tmp->next;
+    }
+
+    for (int i = 0; i < parallel_jobs - 1; i++) {
+        wait(NULL); wait(NULL);
     }
     dlclose(handle);
 
     print_counts();
-    print_credits();
 
     return get_test_report();
 }
@@ -67,6 +84,7 @@ discover_functions (char *argv[]) {
 
     handle = dlopen(argv[0], RTLD_LAZY);
     while (functions != NULL) {
+        increase_case_count();
         void(*function)();
         function = (void(*)()) dlsym(handle, functions->data);
         add_test_function(function);
@@ -78,6 +96,8 @@ discover_functions (char *argv[]) {
 
 void
 yenilmez_initialize (int argc, char *argv[]) {
+    print_credits();
+
     discover_functions(argv);
     signal_handlers_initialize ();
 }

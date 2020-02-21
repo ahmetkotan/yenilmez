@@ -12,8 +12,14 @@
 
 char *RED_TERMINAL = "\033[1;31m";
 char *GREEN_TERMINAL = "\033[1;32m";
+char *YELLOW_TERMINAL = "\033[1;33m";
 char *BLUE_TERMINAL = "\033[1;34m";
 char *RESET_COLORS = "\033[0m";
+
+void
+print_warning (char *message) {
+    fprintf(stdout, "%s%s%s\n", YELLOW_TERMINAL, message, RESET_COLORS);
+}
 
 void
 print_passed (char *message) {
@@ -22,7 +28,7 @@ print_passed (char *message) {
     else
         fprintf(stdout, "%s[PASSED] %s\n", GREEN_TERMINAL, RESET_COLORS);
 
-    kill(getpid(), PASSED_SIGNAL);
+    kill(getppid(), PASSED_SIGNAL);
 }
 
 void
@@ -32,13 +38,14 @@ print_failed (char *message) {
     else
         fprintf(stderr, "%s[FAILED] %s\n", RED_TERMINAL, RESET_COLORS);
 
-    kill(getpid(), FAILED_SIGNAL);
+    kill(getppid(), FAILED_SIGNAL);
 }
 
 void
 print_counts () {
     fprintf(stdout, "\n\n");
-    fprintf(stdout, "%s[Test Count]: %d%s ", BLUE_TERMINAL, get_test_count(), RESET_COLORS);
+    fprintf(stdout, "%s[Test Cases]: %d%s ", YELLOW_TERMINAL, get_case_count(), RESET_COLORS);
+    fprintf(stdout, "%s[Assertions]: %d%s ", BLUE_TERMINAL, get_assertion_count(), RESET_COLORS);
     fprintf(stdout, "%s[Passed]: %d%s ", GREEN_TERMINAL, get_passed_count(), RESET_COLORS);
     fprintf(stdout, "%s[Failed]: %d%s ", RED_TERMINAL, get_failed_count(), RESET_COLORS);
     fprintf(stdout, "\n");

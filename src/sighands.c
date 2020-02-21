@@ -1,10 +1,10 @@
 //
-// Created by Ahmet Dino on 21.02.2020.
+// Created by Ahmet Kotan on 21.02.2020.
 //
 
 #include <signal.h>
-#include <stdlib.h>
 #include <string.h>
+#include <wait.h>
 
 #include "sighands.h"
 #include "counters.h"

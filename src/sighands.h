@@ -1,5 +1,5 @@
 //
-// Created by Ahmet Dino on 21.02.2020.
+// Created by Ahmet Kotan on 21.02.2020.
 //
 
 #ifndef YENILMEZ_SIGHANDS_H

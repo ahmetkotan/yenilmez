@@ -16,6 +16,6 @@ Also see [doc/REFERENCES.md](doc/REFERENCES.md)
 ## TODO
 - [ ] Doxygen Documentation
 - [X] Development Environment
-- [ ] Async Tests
+- [X] Async Tests (Parallel Jobs)
 - [ ] Signal Assertion
 - [ ] Timeout Assertion

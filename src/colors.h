@@ -17,4 +17,7 @@ print_credits ();
 void
 print_counts ();
 
+void
+print_warning (char *message);
+
 #endif //YENILMEZLER_COLORS_H

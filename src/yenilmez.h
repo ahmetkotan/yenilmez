@@ -7,6 +7,7 @@
 
 #include "assertion.h"
 #include "counters.h"
+#include "jobs.h"
 
 typedef void (*test_func) (void *);
 
