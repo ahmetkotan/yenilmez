@@ -6,6 +6,7 @@
 #define YENILMEZLER_YENILMEZLER_H
 
 #include "assertion.h"
+#include "counters.h"
 
 typedef void (*test_func) (void *);
 
@@ -15,7 +16,7 @@ struct test_functions {
 };
 typedef struct test_functions test_f;
 
-int
+test_counts
 run_all_tests ();
 
 void

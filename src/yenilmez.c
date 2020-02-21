@@ -9,6 +9,8 @@
 #include "yenilmez.h"
 #include "collector.h"
 #include "colors.h"
+#include "sighands.h"
+#include "counters.h"
 
 test_f *flist_head = NULL;
 void *handle;
@@ -18,7 +20,7 @@ call_function (test_f *function) {
     (*(function->func))(NULL);
 }
 
-int
+test_counts
 run_all_tests () {
     test_f *tmp = flist_head;
 
@@ -28,7 +30,10 @@ run_all_tests () {
     }
     dlclose(handle);
 
+    print_counts();
     print_credits();
+
+    return get_test_report();
 }
 
 test_f *
@@ -57,7 +62,7 @@ add_test_function (test_func function) {
 }
 
 void
-yenilmez_initialize (int argc, char *argv[]) {
+discover_functions (char *argv[]) {
     GSList *functions = collect_test_functions(argv[0]);
 
     handle = dlopen(argv[0], RTLD_LAZY);
@@ -69,4 +74,10 @@ yenilmez_initialize (int argc, char *argv[]) {
     }
 
     g_slist_free(functions);
+}
+
+void
+yenilmez_initialize (int argc, char *argv[]) {
+    discover_functions(argv);
+    signal_handlers_initialize ();
 }

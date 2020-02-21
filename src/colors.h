@@ -14,4 +14,7 @@ print_failed (char *message);
 void
 print_credits ();
 
+void
+print_counts ();
+
 #endif //YENILMEZLER_COLORS_H

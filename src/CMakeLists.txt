@@ -14,8 +14,8 @@ set (MINOR_VERSION 9)
 set (VERSION_STRING ${MAJOR_VERSION}.${MINOR_VERSION})
 
 set (LIBYENILMEZ_VERSION ${VERSION_STRING})
-set(YENILMEZ_FILES collector.c assertion.c colors.c yenilmez.c)
-set(YENILMEZ_HEADERS assertion.h yenilmez.h)
+set(YENILMEZ_FILES collector.c assertion.c colors.c yenilmez.c sighands.c counters.c)
+set(YENILMEZ_HEADERS assertion.h counters.h yenilmez.h)
 
 add_library(yenilmez_shared SHARED ${YENILMEZ_FILES} ${YENILMEZ_HEADERS})
 
