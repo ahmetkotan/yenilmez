@@ -36,17 +36,19 @@ run_all_tests () {
         }
         else {
             job++;
+            add_job_pid(sub_pid);
             if (job >= parallel_jobs) {
-                wait(NULL); wait(NULL);
+                while(!check_job_pid(wait(NULL)));
             }
         }
         tmp = tmp->next;
     }
 
     for (int i = 0; i < parallel_jobs - 1; i++) {
-        wait(NULL); wait(NULL);
+        while(!check_job_pid(wait(NULL)));
     }
     dlclose(handle);
+    delete_pid_list();
 
     print_counts();
 
