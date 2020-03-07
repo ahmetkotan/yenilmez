@@ -4,7 +4,6 @@
 
 #include <signal.h>
 #include <string.h>
-#include <wait.h>
 
 #include "sighands.h"
 #include "counters.h"

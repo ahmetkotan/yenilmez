@@ -6,7 +6,7 @@
 #include <glib.h>
 #include <dlfcn.h>
 #include <unistd.h>
-#include <wait.h>
+#include <sys/wait.h>
 
 #include "yenilmez.h"
 #include "collector.h"
