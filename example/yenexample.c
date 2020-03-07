@@ -4,6 +4,18 @@
 
 #include <yenilmez/yenilmez.h>
 #include <unistd.h>
+#include <signal.h>
+#include <stdlib.h>
+
+void
+signal_function () {
+    kill(getppid(), 11);
+}
+
+void
+exit_function () {
+    exit(10);
+}
 
 void
 test_integers () {
@@ -18,6 +30,15 @@ test_strings () {
     yen_test_str_eq("yenilmez", "yenilmez", "yenilmez is yenilmez");
     yen_test_str_eq("yenilmez", "yenilmez2", "yenilmez is yenilmez2");
     yen_test_str_neq("yenilmez", "yenilmez2", "yenilmez is not yenilmez2");
+}
+
+void
+test_signal_and_exit () {
+    yen_test_catch_signal(&signal_function, NULL, 11, "Catch 11 signal.");
+    yen_test_catch_signal(&signal_function, NULL, 20, "Catch 11 signal.");
+
+    yen_test_exit_status(&exit_function, NULL, 10, "Exited with 10");
+    yen_test_exit_status(&exit_function, NULL, 11, "Exited with 10");
 }
 
 int main (int argc, char *argv[]) {

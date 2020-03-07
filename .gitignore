@@ -2,3 +2,4 @@
 cmake-build*/
 build/
 main.c
+.DS_Store

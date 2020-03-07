@@ -4,6 +4,7 @@
 
 #include <signal.h>
 #include <string.h>
+#include <glib.h>
 
 #include "sighands.h"
 #include "counters.h"
@@ -34,4 +35,22 @@ signal_handlers_initialize () {
     memset(&failed_action, 0, sizeof(failed_action));
     failed_action.sa_sigaction = &failed_signal_handler;
     sigaction(FAILED_SIGNAL, &failed_action, NULL);
+}
+
+int global_signal;
+void
+custom_signal_handler (int signal, siginfo_t *info, void *context) {
+    if (signal == global_signal)
+        signal_catch = 1;
+}
+
+void
+custom_signal_handler_initialize (int signal) {
+    signal_catch = 0;
+    global_signal = signal;
+
+    struct sigaction custom_action;
+    memset(&custom_action, 0, sizeof(custom_action));
+    custom_action.sa_sigaction = &custom_signal_handler;
+    sigaction(signal, &custom_action, NULL);
 }
