@@ -11,6 +11,8 @@
 * int yen_test_gte (int source, int destination, char *message);
 * int yen_test_str_eq (char *source, char *destination, char *message);
 * int yen_test_str_neq (char *source, char *destination, char *message);
+* void yen_test_catch_signal (void *function, void *arguments, int signal, char *message);
+* void yen_test_exit_status (void *function, void *arguments, int exit_status, char *message);
 
 ## Job Reference List
 * void set_parallel_jobs(int j);

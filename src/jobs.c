@@ -14,7 +14,7 @@ GSList *pid_list = NULL;
 void
 set_parallel_jobs (int j) {
     if (j < 1) {
-        print_warning("Parallel jobs can be at least 1.\n");
+        print_warning("[WARNING]: Parallel jobs can be at least 1.\n");
         return;
     }
     job_count = j;

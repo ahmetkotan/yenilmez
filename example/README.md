@@ -12,12 +12,19 @@ make
 ./yenexample
 ```
 ```textmate
+[PASSED] : Catch 11 signal.
+[FAILED] : Could not caught 20 signal
+[PASSED] : Exited with 10
+[FAILED] : Exited with 10 status code not 11
 [PASSED] : 3 is equal to 3
 [FAILED] : 3 is equal to 2 -> 3 != 2
 [PASSED] : 3 is not equal to 2
 [PASSED] : yenilmez is yenilmez
 [FAILED] : yenilmez is yenilmez2 -> yenilmez != yenilmez2
 [PASSED] : yenilmez is not yenilmez2
+
+
+[Test Cases]: 3 [Assertions]: 10 [Passed]: 6 [Failed]: 4
 ```
 
 ## Compile with gcc on command line
