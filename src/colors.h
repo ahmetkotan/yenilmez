@@ -2,8 +2,8 @@
 // Created by Ahmet Kotan on 15.02.2020.
 //
 
-#ifndef YENILMEZLER_COLORS_H
-#define YENILMEZLER_COLORS_H
+#ifndef YENILMEZ_COLORS_H
+#define YENILMEZ_COLORS_H
 
 void
 print_passed (char *message);
@@ -20,4 +20,4 @@ print_counts ();
 void
 print_warning (char *message);
 
-#endif //YENILMEZLER_COLORS_H
+#endif //YENILMEZ_COLORS_H

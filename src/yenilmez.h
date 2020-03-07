@@ -2,8 +2,8 @@
 // Created by Ahmet Kotan on 15.02.2020.
 //
 
-#ifndef YENILMEZLER_YENILMEZLER_H
-#define YENILMEZLER_YENILMEZLER_H
+#ifndef YENILMEZ_YENILMEZ_H
+#define YENILMEZ_YENILMEZ_H
 
 #include "assertion.h"
 #include "counters.h"
@@ -23,4 +23,4 @@ run_all_tests ();
 void
 yenilmez_initialize (int argc, char *argv[]);
 
-#endif //YENILMEZLER_YENILMEZLER_H
+#endif //YENILMEZ_YENILMEZ_H

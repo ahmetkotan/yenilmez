@@ -2,8 +2,8 @@
 // Created by Ahmet Kotan on 15.02.2020.
 //
 
-#ifndef YENILMEZLER_ASSERTION_H
-#define YENILMEZLER_ASSERTION_H
+#ifndef YENILMEZ_ASSERTION_H
+#define YENILMEZ_ASSERTION_H
 
 int
 yen_test (void *argument, char *message);
@@ -42,4 +42,4 @@ void
 yen_test_exit_status (void *function, void *arguments, int exit_status, char *message);
 
 
-#endif //YENILMEZLER_ASSERTION_H
+#endif //YENILMEZ_ASSERTION_H
